@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<p>Use this area to provide additional information.</p>
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+
+<!-- add before </body> -->
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<input type="file">
+
+<script>
+    const inputElement = document.querySelector('input[type="file"]');
+    const pond = FilePond.create(inputElement);
+    FilePond.setOptions({
+        server: {
+            process: '/files/process'
+        }
+    });
+</script>
